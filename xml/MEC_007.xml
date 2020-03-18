@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<steps>
+  <step path="MT_CodigoBarrasV2_Send/ROW" target="NPVFRArticulosEquivalentes">
+    <field field="ARTICULO" dbtype ="varchar" size="20"  path="ARTICULO"  />
+    <field field="EQUIVALENTE" dbtype ="varchar" size="15"  path="EQUIVALENTE" default="" />
+    <field field="DESCRIPCION" dbtype ="varchar" size="50"  path="DESCRIPCION" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step type="update" path="MT_CodigoBarrasV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="ArticulosEquivalente" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step path="" target="NPVSP_RWS_TRDatosMEC007">
+    <field field="@Documento" dbtype ="uniqueidentifier" size="0"  path="MT_CodigoBarrasV2_Send/CTRL/Guid"  />
+  </step>
+</steps>

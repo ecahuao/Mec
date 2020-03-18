@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:MT_Pomociones_res xmlns:ns0="http://gmodelo.com/ECC/MEC_006">
+   <NumeroIdoc/>
+   <PROMOC>
+      <ROW>
+         <CLAVE/>
+         <CLASE/>
+         <VIGENCIAINICIO/>
+         <VIGENCIAFINAL/>
+         <VALORN/>
+         <VALORM/>
+         <DENOMINACION/>
+         <STATUS/>
+         <MENSAJE/>
+         <PIETICKET/>
+         <VIGENCIAFINALCOBRO/>
+         <IND_MODIFICACION/>
+      </ROW>
+   </PROMOC>
+   <PROMOL>
+      <ROW>
+         <CLAVE/>
+         <CLAVEARTICULO/>
+         <CANTIDAD/>
+         <PRECIOUNITARIO/>
+         <GRUPO/>
+         <STATUS/>
+         <RANGOMIN/>
+         <RANGOMAX/>
+         <BONO/>
+      </ROW>
+   </PROMOL>
+</ns0:MT_Pomociones_res>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<steps>
+  <step path="MT_ArticuloProveedorV2_Send/NARPE/ROW" target="NPVFRArticulosEquivalentesProveedores">
+    <field field="ARTICULO" dbtype ="varchar" size="20"  path="ARTICULO"  />
+    <field field="EQUIVALENTE" dbtype ="varchar" size="20"  path="EQUIVALENTE"  />
+    <field field="PROVEEDOR" dbtype ="int" size="0"  path="PROVEEDOR" default="NULL"  />
+    <field field="DESCRIPCION" dbtype ="varchar" size="50"  path="DESCRIPCION" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step path="MT_ArticuloProveedorV2_Send/NARPR/ROW" target="NPVFRArticulosProveedores">
+    <field field="ARTICULO" dbtype ="char" size="20"  path="ARTICULO"  />
+    <field field="PROVEEDOR" dbtype ="int" size="0"  path="PROVEEDOR" />
+    <field field="NUMEROPARTE" dbtype ="char" size="20"  path="NUMEROPARTE" default="NULL"  />
+    <field field="UNIDADCOMPRA" dbtype ="char" size="3"  path="UNIDADCOMPRA" default="NULL"  />
+    <field field="FACTORCOMPRA" dbtype ="float" size="0"  path="FACTORCOMPRA" default="NULL"  />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA" default="NULL"  />
+    <field field="FECHAALTA" dbtype ="datetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="DEVOLUCION" dbtype ="char" size="2"  path="DEVOLUCION" default="NULL"  />
+    <field field="COSTO" dbtype ="float" size="0"  path="COSTO" default="NULL"  />
+    <field field="DESCRIPCIONPARTE" dbtype ="varchar" size="50"  path="DESCRIPCIONPARTE" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+    </step>
+  <step path="MT_ArticuloProveedorV2_Send/NSVAC/ROW" target="NPVFRServiciosProveedor">
+    <field field="ACREEDOR" dbtype ="int" size="0"  path="ACREEDOR"  />
+    <field field="CODIGOSERVICIO" dbtype ="char" size="20"  path="CODIGOSERVICIO" />
+    <field field="DESCRIPCIONSERVICIO" dbtype ="varchar" size="50"  path="DESCRIPCIONSERVICIO" default="NULL" />
+    <field field="TIPOSERVICIO" dbtype ="char" size="3"  path="TIPOSERVICIO" />
+    <field field="CONCEPTOSERVICIO" dbtype ="char" size="3"  path="CONCEPTOSERVICIO" default="NULL"  />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA" default="NULL"  />
+    <field field="FECHAALTA" dbtype ="smalldatetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step type="update" path="MT_ArticuloProveedorV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="ArticulosEquivalentesProveedores" />
+    <field field="BORRAR" dbtype ="bit" size="0" path=""   default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_ArticuloProveedorV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="ArticulosProveedores" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_ArticuloProveedorV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="ServiciosProveedor" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step path="" target="NPVSP_RWS_TRDatosMEC004">
+    <field field="@Documento" dbtype ="uniqueidentifier" size="0"  path="MT_ArticuloProveedorV2_Send/CTRL/Guid"  />
+  </step>
+</steps>

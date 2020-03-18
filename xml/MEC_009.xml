@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<steps>
+  <step path="MT_ArticulosKitV2_Send/ROW" target="NPVFRArticulosKit">
+    <field field="ARTICULO" dbtype ="char" size="20"  path="ARTICULO"  />
+    <field field="ARTICULOKIT" dbtype ="char" size="20"  path="ARTICULOKIT" default=""  />
+    <field field="CANTIDAD" dbtype ="float" size="0"  path="CANTIDAD" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step type="update" path="MT_ArticulosKitV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="ArticulosKit" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step path="" target="NPVSP_RWS_TRDatosMEC009">
+    <field field="@Documento" dbtype ="uniqueidentifier" size="0"  path="MT_ArticulosKitV2_Send/CTRL/Guid"  />
+  </step>
+</steps>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<steps>
+  <step path="MT_ArticulosV2_Send/NARTI/ROW" target="NPVFRArticulos">
+    <field field="ARTICULO" dbtype ="varchar" size="20"  path="ARTICULO"/>
+    <field field="CATEGORIA" dbtype ="char" size="8"  path="CATEGORIA"  default="NULL"   />
+    <field field="TIPO" dbtype ="char" size="3"  path="TIPO"   default="NULL"   />
+    <field field="DESCRIPCION" dbtype ="varchar" size="50"  path="DESCRIPCION"   default="NULL"   />
+    <field field="TIPOIMPUESTO1" dbtype ="int" size="0"  path="TIPOIMPUESTO1"  default="NULL"   />
+    <field field="TIPOIMPUESTO2" dbtype ="int" size="0"  path="TIPOIMPUESTO2"  default="NULL"   />
+    <field field="TIPOIMPUESTO3" dbtype ="int" size="0"  path="TIPOIMPUESTO3"  default="NULL"   />
+    <field field="TIPOIMPUESTO4" dbtype ="int" size="0"  path="TIPOIMPUESTO4"  default="NULL"   />
+    <field field="FACTORPRECIOA" dbtype ="float" size="0"  path="FACTORPRECIOA"  default="NULL"   />
+    <field field="FACTORPRECIOB" dbtype ="float" size="0"  path="FACTORPRECIOB"  default="NULL"   />
+    <field field="FACTORPRECIOC" dbtype ="float" size="0"  path="FACTORPRECIOC"  default="NULL"   />
+    <field field="FACTORPRECIOD" dbtype ="float" size="0"  path="FACTORPRECIOD"  default="NULL"   />
+    <field field="FACTORPRECIOE" dbtype ="float" size="0"  path="FACTORPRECIOE"  default="NULL"   />
+    <field field="NIVELOPTIMO" dbtype ="float" size="0"  path="NIVELOPTIMO"  default="NULL"   />
+    <field field="UNIDADEXISTENCIA" dbtype ="char" size="3"  path="UNIDADEXISTENCIA" default="NULL"  />
+    <field field="UNIDADUSO" dbtype ="char" size="3"  path="UNIDADUSO" default="NULL"  />
+    <field field="FACTORUNIDADUSO" dbtype ="float" size="0"  path="FACTORUNIDADUSO"  default="NULL"   />
+    <field field="COSTO" dbtype ="float" size="0"  path="COSTO"  default="NULL"   />
+    <field field="TOLERANCIA" dbtype ="float" size="0"  path="TOLERANCIA"  default="NULL"   />
+    <field field="CLASE" dbtype ="int" size="0"  path="CLASE"  default="NULL"   />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA"  default="NULL"   />
+    <field field="FECHAALTA" dbtype ="datetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="ACEPTAFRACCIONES" dbtype ="char" size="1"  path="ACEPTAFRACCIONES" default="NULL"  />
+    <field field="EQUTDA" dbtype ="varchar" size="6"  path="EQUTDA"   default="NULL"   />
+    <field field="SURTIDO" dbtype ="char" size="3"  path="SURTIDO" default="NULL"  />
+    <field field="SEPUEDEVENDER" dbtype ="bit" size="0"  path="SEPUEDEVENDER" default="NULL"  />
+    <field field="FILLER" dbtype ="varchar" size="10"  path="FILLER" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step path="MT_ArticulosV2_Send/NPVTA/ROW" target="NPVFRPreciosVenta">
+    <field field="ARTICULO" dbtype ="char" size="20"  path="ARTICULO" default="NULL"  />
+    <field field="PRECIO" dbtype ="float" size="0"  path="PRECIO" default="NULL"  />
+    <field field="TIPOIMPUESTO1" dbtype ="int" size="0"  path="TIPOIMPUESTO1" default="NULL"  />
+    <field field="TIPOIMPUESTO2" dbtype ="int" size="0"  path="TIPOIMPUESTO2" default="NULL"  />
+    <field field="TIPOIMPUESTO3" dbtype ="int" size="0"  path="TIPOIMPUESTO3" default="NULL"  />
+    <field field="TIPOIMPUESTO4" dbtype ="int" size="0"  path="TIPOIMPUESTO4" default="NULL"  />
+    <field field="FECHAINICIO" dbtype ="datetime" size="0"  path="FECHAINICIO" default="2017-01-12T00:00:00"  />
+    <field field="STATUS" dbtype ="char" size="1"  path="STATUS" default="NULL"  />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA" default="NULL"  />
+    <field field="FECHAALTA" dbtype ="datetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step path="MT_ArticulosV2_Send/NPVSE/ROW" target="NPVFRPreciosVentaServicios">
+    <field field="ACREEDOR" dbtype ="int" size="0"  path="ACREEDOR" default="NULL"  />
+    <field field="CODIGOSERVICIO" dbtype ="char" size="20"  path="CODIGOSERVICIO" default="NULL"  />
+    <field field="FECHAINICIO" dbtype ="smalldatetime" size="0"  path="FECHAINICIO" default="2017-01-12T00:00:00"  />
+    <field field="PRECIOVENTA" dbtype ="money" size="0"  path="PRECIOVENTA" default="NULL"  />
+    <field field="PRECIOMAX" dbtype ="money" size="0"  path="PRECIOMAX" default="NULL"  />
+    <field field="PRECIOMIN" dbtype ="money" size="0"  path="PRECIOMIN" default="NULL"  />
+    <field field="FECHAALTA" dbtype ="smalldatetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step type="update" path="MT_ArticulosV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="Articulos" />
+    <field field="BORRAR" dbtype ="bit" size="0" path=""   default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_ArticulosV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="PreciosVenta" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_ArticulosV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="PreciosVentaServicios" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <!--<step path="" target="NPVSP_RWS_TRDatosMEC002">
+    <field field="@Documento" dbtype ="uniqueidentifier" size="0"  path="MT_ArticulosV2_Send/CTRL/Guid"  />
+  </step>-->
+</steps>

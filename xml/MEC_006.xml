@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<steps>
+  <step path="MT_PromocionesV2_Send/PROMOC/ROW" target="NPVFRPromocionEncabezado">
+    <field field="CLAVE" dbtype ="char" size="10"  path="CLAVE"  />
+    <field field="CLASE" dbtype ="char" size="10"  path="CLASE"  />
+    <field field="VALORN" dbtype ="int" size="0"  path="VALORN" default="0"  />
+    <field field="VALORM" dbtype ="int" size="0"  path="VALORM" default="0"  />
+    <field field="VIGENCIAINICIO" dbtype ="datetime" size="0"  path="VIGENCIAINICIO" default="NULL"  />
+    <field field="VIGENCIAFINAL" dbtype ="datetime" size="0"  path="VIGENCIAFINAL" default="NULL"  />
+    <field field="DENOMINACION" dbtype ="varchar" size="100"  path="DENOMINACION" default="NULL"  />
+    <field field="STATUS" dbtype ="char" size="1"  path="STATUS" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="" default="PIServices"  />
+    <field field="FECHAALTA" dbtype ="datetime" size="0"  path="" default="::now"  />
+    <field field="USUARIOEDITA" dbtype ="char" size="10"  path="" default="          "  />
+    <field field="FECHAEDITA" dbtype ="datetime" size="0"  path="" default="1899-12-30 00:00:00.000"  />
+    <field field="USUARIOBAJA" dbtype ="char" size="10"  path="" default="          "  />
+    <field field="FECHABAJA" dbtype ="datetime" size="0"  path="" default="1899-12-30 00:00:00.000"  />
+    <field field="MENSAJE" dbtype ="varchar" size="100"  path="" default=""  />
+    <field field="PIETICKET" dbtype ="varchar" size="100"  path="" default=""  />
+    <field field="VIGENCIAFINALCOBRO" dbtype ="datetime" size="0"  path="VIGENCIAFINAL" default="NULL"  />
+  </step>
+  <step path="MT_PromocionesV2_Send/PROMOL/ROW" target="NPVFRPromocionLineas">
+    <field field="CLAVE" dbtype ="char" size="10"  path="CLAVE"  />
+    <field field="CLAVEARTICULO" dbtype ="varchar" size="20"  path="CLAVEARTICULO"  />
+    <field field="CANTIDAD" dbtype ="float" size="0"  path="CANTIDAD" default="0"  />
+    <field field="PRECIOUNITARIO" dbtype ="float" size="0"  path="PRECIOUNITARIO" default="NULL"  />
+    <field field="GRUPO" dbtype ="int" size="0"  path="GRUPO" default="NULL"  />
+    <field field="STATUS" dbtype ="char" size="1"  path="STATUS" default="NULL"  />
+    <field field="RANGOMIN" dbtype ="money" size="0"  path="" default="0"  />
+    <field field="RANGOMAX" dbtype ="money" size="0"  path="" default="0"  />
+    <field field="BONO" dbtype ="money" size="0"  path="" default="0"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="" default="M"  />
+  </step>
+  <step type="update" path="MT_PromocionesV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="PromocionEncabezado" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_PromocionesV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="PromocionLineas" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step path="" target="NPVSP_RWS_TRDatosMEC006">
+    <field field="@Documento" dbtype ="uniqueidentifier" size="0"  path="MT_PromocionesV2_Send/CTRL/Guid"  />
+  </step>
+</steps>

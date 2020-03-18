@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<steps>
+  <step path="MT_ProveedoresV2_Send/NPROV/ROW" target="NPVFRProveedores">
+    <field field="PROVEEDOR" dbtype ="int" size="0"  path="PROVEEDOR"/>
+    <field field="NOMBRE" dbtype ="varchar" size="50"  path="NOMBRE"  default="NULL"   />
+    <field field="RAZONSOCIAL" dbtype ="varchar" size="50"  path="RAZONSOCIAL"   default="NULL"   />
+    <field field="RFC" dbtype ="char" size="13"  path="RFC"   default="NULL"   />
+    <field field="DIRECCION" dbtype ="char" size="30"  path="DIRECCION"  default="NULL"   />
+    <field field="COLONIA" dbtype ="char" size="30"  path="COLONIA" default="NULL"  />
+    <field field="CODIGOPOSTAL" dbtype ="char" size="5"  path="CODIGOPOSTAL" default="NULL"  />
+    <field field="ESTADO" dbtype ="char" size="20"  path="ESTADO" default="NULL"  />
+    <field field="TELEFONO" dbtype ="char" size="41"  path="TELEFONO" default="NULL"  />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA" default="NULL"  />
+    <field field="FECHAALTA" dbtype ="datetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step path="MT_ProveedoresV2_Send/NDPVR/ROW" target="NPVFRDivisionProveedores">
+    <field field="PROVEEDOR" dbtype ="int" size="0"  path="PROVEEDOR" />
+    <field field="DIVISION" dbtype ="char" size="20"  path="DIVISION" />
+    <field field="DESCRIPCIONDIVISION" dbtype ="nchar" size="30"  path="DESCRIPCIONDIVISION" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+    </step>
+  <step path="MT_ProveedoresV2_Send/NACRE/ROW" target="NPVFRAcreedores">
+    <field field="ACREEDOR" dbtype ="int" size="0"  path="ACREEDOR"   default="0"  />
+    <field field="NOMBRE" dbtype ="varchar" size="50"  path="NOMBRE" />
+    <field field="TIPOSERVICIO" dbtype ="int" size="0"  path="TIPOSERVICIO" default="NULL" />
+    <field field="USUARIOALTA" dbtype ="char" size="10"  path="USUARIOALTA" default="NULL"  />
+    <field field="FECHAALTA" dbtype ="smalldatetime" size="0"  path="FECHAALTA" default="NULL"  />
+    <field field="ACCION" dbtype ="char" size="1"  path="IND_MODIFICACION" default="NULL"  />
+  </step>
+  <step type="update" path="MT_ProveedoresV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="Proveedores" />
+    <field field="BORRAR" dbtype ="bit" size="0" path=""   default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_ProveedoresV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="DivisionProveedores" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step type="update" path="MT_ProveedoresV2_Send/CTRL" target="NPVFRControlTablas">
+    <field type="WHERE" field="NOMBRE" dbtype ="varchar" size="50"  path="" default="Acreedores" />
+    <field field="BORRAR" dbtype ="bit" size="0"   path="" default="0" />
+    <field field="MD5" dbtype ="varchar" size="50"  path="NumeroIdoc" default="NULL"  />
+    <field field="NUEVO" dbtype ="bit" size="0"  path="" default="0"  />
+  </step>
+  <step path="" target="NPVSP_RWS_TRDatosMEC003">
+    <field field="@Documento" dbtype ="uniqueidentifier" size="0"  path="MT_ProveedoresV2_Send/CTRL/Guid"  />
+  </step>
+</steps>
